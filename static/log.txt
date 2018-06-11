@@ -1,0 +1,54 @@
+1
+0
+orderNumber
+asc
+0
+10
+2
+0
+orderNumber
+asc
+10
+10
+3
+0
+orderNumber
+asc
+0
+10
+WHERE :col0 LIKE :0 OR :col1 LIKE :1 OR :col2 LIKE :2 OR :col3 LIKE :3 OR :col4 LIKE :4 OR :col5 LIKE :5 OR :col6 LIKE :6
+orderNumber C
+customerNumber C
+orderDate C
+requiredDate C
+shippedDate C
+status C
+comments C
+4
+0
+orderNumber
+asc
+0
+10
+WHERE :col0 LIKE :0 OR :col1 LIKE :1 OR :col2 LIKE :2 OR :col3 LIKE :3 OR :col4 LIKE :4 OR :col5 LIKE :5 OR :col6 LIKE :6
+orderNumber Ca
+customerNumber Ca
+orderDate Ca
+requiredDate Ca
+shippedDate Ca
+status Ca
+comments Ca
+5
+0
+orderNumber
+asc
+0
+10
+WHERE :col0 LIKE :0 OR :col1 LIKE :1 OR :col2 LIKE :2 OR :col3 LIKE :3 OR :col4 LIKE :4 OR :col5 LIKE :5 OR :col6 LIKE :6
+orderNumber Can
+customerNumber Can
+orderDate Can
+requiredDate Can
+shippedDate Can
+status Can
+comments Can
