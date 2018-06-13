@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin: 0;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 ul {
@@ -291,7 +291,7 @@ li.dropdown{
     margin: 25px 0 0 20px;
 }
 .set-border-left{
-    border-left: 1px solid #000;
+    padding: 20px;
 }
 .feedback-content{
     padding: 0 40px;
@@ -308,13 +308,8 @@ li.dropdown{
     right: 30px !important;
 }
 #myCarousel4 .carousel-control.left, #myCarousel4 .carousel-control.right, #myCarousel5 .carousel-control.left, #myCarousel5 .carousel-control.right{
-    top: 85%
+    top: 82%
 }
-/*.feedback-content:first-of-type(1) {
-    border-bottom: 1px solid #000;
-   // padding: 0 0 15px 0;
-}*/
-/*welcome block*/
 .welcome-block-full-image{
     background: url('../images/Home/Image1.png')
 }
@@ -343,7 +338,7 @@ li.dropdown{
     top: 45%;
 }
 #myCarousel2 .carousel-control.left, #myCarousel3 .carousel-control.left, #myCarousel6 .carousel-control.left{
-    left: -50px; 
+    left: -50px;
 }
 #myCarousel2 .carousel-control.right, #myCarousel3 .carousel-control.right, #myCarousel6 .carousel-control.right{
     right: -50px;
@@ -1413,3 +1408,7 @@ mark, .mark {
         .login-form button {
             width: 100%;
         }
+
+.top-tiffin-centers {
+    margin: 60px 0;
+}
