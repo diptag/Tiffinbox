@@ -3,13 +3,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="assets/images/Home/favicon.png"/>
-        <title><?= $title ?></title>
+        <link rel="icon" href="assets/images/Home/favicon.png"/> <title><?= $title ?></title>
 
         <!-- Bootstrap core CSS -->
         <link href="assets/fonts/oswald/stylesheet.css" rel="stylesheet"/>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Custom styles for this template -->
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/responsive.css" rel="stylesheet">
@@ -18,6 +17,7 @@
         <script src="assets/js/counterup.min.js" type="text/javascript"></script>
         <script src="assets/js/waypoints.min.js" type="text/javascript"></script>
         <script src="assets/js/instafeed.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/jquery-bootpag/lib/jquery.bootpag.min.js" type="text/javascript"></script>
         <script src="assets/js/custom.js" type="text/javascript"></script>
 
     </head>
@@ -54,6 +54,9 @@
                                     </li>
                                     <?php else: ?>
                                     <li><a href="logout">LogOut</a></li>
+                                    <?php endif; ?>
+                                    <?php if (isset($_SESSION["user_city"])): ?>
+                                    <li><a data-toggle="modal" data-target="#city-modal"><i class="fa fa-map-marker"></i> <?= $_SESSION["user_city"] ?></a></li>
                                     <?php endif; ?>
                                 </ul>
 

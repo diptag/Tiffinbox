@@ -454,7 +454,6 @@ li.dropdown{
     margin: auto;
 }
 .modal-content {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: medium none;
     box-shadow: none;
 }
@@ -1411,4 +1410,8 @@ mark, .mark {
 
 .top-tiffin-centers {
     margin: 60px 0;
+}
+
+div.menu-row {
+    margin-bottom: 50px;
 }
