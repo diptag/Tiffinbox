@@ -71,3 +71,38 @@
             <div class="clearfix"></div>
         </header>
         <!--end-->
+
+        <div id="city-modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-footer" style="text-align: left;">
+                        <h3>Enter Your Location</h3>
+                    </div>
+                    <form action="/home" method="GET">
+                        <div class="modal-body" style="font-size: 16px;">
+                            <label for="user-city">Select City: &nbsp;&nbsp;</label>
+                            <select name="user_city" id="user-city" style="width: 40%;">
+                                <?php foreach ($cities as $city): ?>
+                                    <option value="<?= $city["city"] ?>"><?= $city["city"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <?php if (isset($_SESSION["user_city"])): ?>
+                            <button class="btn btn-primary" type="button" data-dismiss="modal">Close</button>
+                            <?php endif; ?>
+                            <button type="submit" class="btn btn-primary">Save City</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <?php if (!isset($_SESSION["user_city"])): ?>
+        <script>
+            $(function () {
+                $('#city-modal').modal('show');
+            });
+        </script>
+        <?php endif; ?>
+

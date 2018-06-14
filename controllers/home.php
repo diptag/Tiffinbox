@@ -1,8 +1,6 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
-        $cities = ($dbh->query("SELECT DISTINCT city FROM tiffin_centers"))->fetchAll(PDO::FETCH_ASSOC);
-
         if (isset($_GET["user_city"]))
             $_SESSION["user_city"] = htmlspecialchars($_GET["user_city"]);
 
@@ -15,11 +13,11 @@
             $result = (int)$total_query->fetch();
             $total_tiffin_centers = intval($result/PAGE_LIMIT) + 1;
 
-            render ("home", ["title" => "Home", "active_page" => "home", "total_tiffin_centers" => $total_tiffin_centers, "cities" => $cities]);
+            render ("home", ["title" => "Home", "active_page" => "home", "total_tiffin_centers" => $total_tiffin_centers]);
         }
         else
         {
-            render ("home", ["title" => "Home", "active_page" => "home", "cities" => $cities]);
+            render ("home", ["title" => "Home", "active_page" => "home"]);
         }
     }
 

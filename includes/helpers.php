@@ -10,6 +10,7 @@
         extract($values);
         global $dbh;
         $static_pages = ($dbh->query("SELECT * FROM static_pages")->fetchALL(PDO::FETCH_ASSOC));
+        $cities = ($dbh->query("SELECT DISTINCT city FROM tiffin_centers"))->fetchAll(PDO::FETCH_ASSOC);
 
         // render views between header and footer
         require(__DIR__."/../views/header.php");
