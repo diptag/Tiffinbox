@@ -8,6 +8,8 @@
     {
         // extract variables in local scope
         extract($values);
+        global $dbh;
+        $static_pages = ($dbh->query("SELECT * FROM static_pages")->fetchALL(PDO::FETCH_ASSOC));
 
         // render views between header and footer
         require(__DIR__."/../views/header.php");

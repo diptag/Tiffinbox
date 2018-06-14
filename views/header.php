@@ -25,45 +25,46 @@
         <!--header--->
         <header>
             <nav class="navbar navbar-default">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 visible-xs">
-                            <div class="logo-mobile">
-                                <a href="index.html"><img src="assets/images/Home/logo.png"/></a>
-                            </div>
+                <div class="row">
+                    <div class="col-xs-12 visible-xs">
+                        <div class="logo-mobile">
+                            <a href="index.html"><img src="assets/images/Home/logo.png"/></a>
                         </div>
-                        <div class="col-md-11 col-xs-12">
-                            <div class="collapse navbar-collapse text-center" id="myNavbar">
-                                <div class="logo hidden-xs navbar-left">
-                                    <a href="home"><img src="assets/images/Home/logo.png"/></a>
-                                </div>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="<?php if ($active_page == "home") echo "active"; ?>"><a href="home">Home</a></li>
-                                    <?php if (!isset($_SESSION["user_id"])): ?>
-                                    <li class="dropdown <?php if ($active_page == "login") echo "active"; ?>">
-                                        <a data-toggle="dropdown" class="toggle set-pos">
-                                            Login/Register <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                        </a>
-                                        <div class="dropdown-menu btn-block box-content-menu">
-                                            <ul class="menu">
-                                                <li><a class="dropdown" href="user-login">User Login</a></li>
-                                                <li><a class="dropdown" href="tiffin-center-login">Tiffin Center Login</a></li>
-                                                <li><a class="dropdown" href="register-user">Register User</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <?php else: ?>
-                                    <li><a href="logout">LogOut</a></li>
-                                    <?php endif; ?>
-                                    <?php if (isset($_SESSION["user_city"])): ?>
-                                    <li><a data-toggle="modal" data-target="#city-modal"><i class="fa fa-map-marker"></i> <?= $_SESSION["user_city"] ?></a></li>
-                                    <?php endif; ?>
-                                </ul>
+                    </div>
+                    <div class="col-md-11 col-xs-12">
+                        <div class="collapse navbar-collapse text-center" id="myNavbar">
+                            <div class="logo hidden-xs navbar-left">
+                                <a href="home"><img src="assets/images/Home/logo.png"/></a>
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="<?php if ($active_page == "home") echo "active"; ?>"><a href="home">Home</a></li>
+                                <?php foreach ($static_pages as $static_page): ?>
+                                <li class="<?php if ($active_page == $static_page["page_url"]) echo "active"; ?>"><a href="static-pages?spage=<?= $static_page["page_url"] ?>"><?= $static_page["name"] ?></a></li>
+                                <?php endforeach; ?>
+                                <?php if (isset($_SESSION["user_city"])): ?>
+                                <li><a data-toggle="modal" data-target="#city-modal"><i class="fa fa-map-marker"></i> <?= $_SESSION["user_city"] ?></a></li>
+                                <?php endif; ?>
+                                <?php if (!isset($_SESSION["user_id"])): ?>
+                                <li class="dropdown <?php if ($active_page == "login") echo "active"; ?>">
+                                    <a data-toggle="dropdown" class="toggle set-pos">
+                                        Login/Register <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </a>
+                                    <div class="dropdown-menu btn-block box-content-menu">
+                                        <ul class="menu">
+                                            <li><a class="dropdown" href="user-login">User Login</a></li>
+                                            <li><a class="dropdown" href="tiffin-center-login">Tiffin Center Login</a></li>
+                                            <li><a class="dropdown" href="register-user">Register User</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <?php else: ?>
+                                <li><a href="logout">LogOut</a></li>
+                                <?php endif; ?>
+                            </ul>
 
-                            </div>
                         </div>
-                        <div class="col-md-1">
-                        </div>
+                    </div>
+                    <div class="col-md-1">
                     </div>
                 </div>
             </nav>

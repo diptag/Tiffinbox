@@ -737,7 +737,7 @@ footer .social-grid.text-right a {
 }
 footer .social-grid.text-right a:hover{
     color: #e01931;
-    border-color: #e01931; 
+    border-color: #e01931;
 }
 .footer-block li.active > a{
     color: #e01931;
@@ -745,9 +745,6 @@ footer .social-grid.text-right a:hover{
 .social-grid.text-right a i {
     font-size: 16px;
     line-height: 31px;
-}
-footer .social-grid {
-    padding: 35px 0 5px;
 }
 .social-grid.text-right li + li {
     margin-left: 15px;
@@ -1388,7 +1385,7 @@ mark, .mark {
        }
 
 .login-form {
-    padding: 40px;
+    padding-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;

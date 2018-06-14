@@ -1,6 +1,9 @@
         <div id="city-modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    <div class="modal-footer" style="text-align: left;">
+                        <h3>Enter Your Location</h3>
+                    </div>
                     <form action="/home" method="GET">
                         <div class="modal-body" style="font-size: 16px;">
                             <label for="user-city">Select City: &nbsp;&nbsp;</label>
@@ -49,36 +52,24 @@
                     <h1>Today's Top Menus</h1>
                 </div>
                 <div class="height-135"></div>
-                <div class="row menu-row">
-                    <div class="col-md-6 col-sm-12 row">
-                        <div class="col-md-6">
-                            <img src="assets/images/Home/Image11.png">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 style="margin-bottom: 15px;">Good Day Tiffin Center</h3>
-                            <p><strong>Location:</strong> Jaipur, Rajasthan</p>
-                            <p><strong>Menu:</strong> 3 Chapati, Dal, Rice, 1 Sabji, Curd</p>
-                            <p><strong>Price:</strong> <i class="fa fa-inr"></i> 100</p>
-                            <a href="#" class="btn btn-primary" style="margin-top: 10px; width: 100%;">See Details</a>
-                            <a href="#" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 row">
-                        <div class="col-md-6">
-                            <img src="assets/images/Home/Image11.png">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 style="margin-bottom: 15px;">Good Day Tiffin Center</h3>
-                            <p><strong>Location:</strong> Jaipur, Rajasthan</p>
-                            <p><strong>Menu:</strong> 3 Chapati, Dal, Rice, 1 Sabji, Curd</p>
-                            <p><strong>Price:</strong> <i class="fa fa-inr"></i> 100</p>
-                            <a href="#" class="btn btn-primary" style="margin-top: 10px; width: 100%;">See Details</a>
-                            <a href="#" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Add to Cart</a>
-                        </div>
-                    </div>
+                <div id="top-menus">
                 </div>
+                <div id="menus-pagination" style="display: flex; justify-content: center;"></div>
             </div>
         </section>
+
+        <script>
+            $(function () {
+                $('#top-menus').load('home', {'page': 1});
+                $('#menus-pagination').bootpag({
+                    total: <?= $total_tiffin_centers ?>,
+                    page: 1,
+                    maxVisible: 5,
+                }).on('page', function (event, num) {
+                    $('#top-menus').load('home', {'page': num});
+                });
+            });
+        </script>
 
           <section class="service-block">
             <div class="container">
