@@ -1,0 +1,6 @@
+[submodule "assets/vendor/jquery-bootpag"]
+	path = assets/vendor/jquery-bootpag
+	url = https://github.com/botmonster/jquery-bootpag.git
+[submodule "slir"]
+	path = slir
+	url = https://github.com/lencioni/SLIR.git
