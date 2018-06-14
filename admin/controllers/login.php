@@ -16,6 +16,7 @@
 
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["user_name"] = $user["name"];
+            $_SESSION["user_type"] = "admin";
 
             if (password_verify($_POST["password"], $user["password_hash"]))
                 redirect ("dashboard");

@@ -15,8 +15,10 @@
 
     if (!isset($_SESSION["user_id"]) && $_GET["url"] != "login")
         render_login ("You Need To Login First!");
-    else if (isset ($_SESSION["user_id"]) && $_GET["url"] == "login")
-        $_GET["url"] = "dashboard";
+    else if (isset($_SESSION["user_id"]) && $_SESSION["user_type"] != "admin" && $_GET["url"] != "login")
+            render_login ("Invalid Username or Password!");
+    else if (isset($_SESSION["user_id"]) && $_SESSION["user_type"] == "admin" && $_GET["url"] == "login")
+        redirect ("dashboard");
 
     $path = "./controllers/".$_GET["url"].".php";
     if (file_exists($path))
