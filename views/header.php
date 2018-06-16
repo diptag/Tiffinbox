@@ -7,13 +7,13 @@
 
         <!-- Bootstrap core CSS -->
         <link href="assets/fonts/oswald/stylesheet.css" rel="stylesheet"/>
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Custom styles for this template -->
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/responsive.css" rel="stylesheet">
-        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-        <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/js/counterup.min.js" type="text/javascript"></script>
         <script src="assets/js/waypoints.min.js" type="text/javascript"></script>
         <script src="assets/js/instafeed.min.js" type="text/javascript"></script>
