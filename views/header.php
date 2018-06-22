@@ -18,6 +18,7 @@
         <script src="assets/js/waypoints.min.js" type="text/javascript"></script>
         <script src="assets/js/instafeed.min.js" type="text/javascript"></script>
         <script src="assets/vendor/jquery-bootpag/lib/jquery.bootpag.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/Highcharts/code/highcharts.js" type="text/javascript"></script>
         <script src="assets/js/custom.js" type="text/javascript"></script>
 
     </head>
@@ -36,6 +37,7 @@
                             <div class="logo hidden-xs navbar-left">
                                 <a href="home"><img src="assets/images/Home/logo.png"/></a>
                             </div>
+                            <?php if (!isset($_SESSION["user_type"]) || $_SESSION["user_type"] == "Consumer"): ?>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="<?php if ($active_page == "home") echo "active"; ?>"><a href="home">Home</a></li>
                                 <?php foreach ($static_pages as $static_page): ?>
@@ -61,6 +63,15 @@
                                 <li><a href="logout">LogOut</a></li>
                                 <?php endif; ?>
                             </ul>
+                            <?php elseif ($_SESSION["user_type"] == "Tiffin Center"): ?>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">Orders</a></li>
+                                <li><a href="#">Menus</a></li>
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="logout">LogOut</a></li>
+                            </ul>
+                            <?php endif; ?>
 
                         </div>
                     </div>

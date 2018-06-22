@@ -69,7 +69,10 @@
                 $_SESSION["user_id"] = $user["id"];
                 $_SESSION["user_name"] = $user["name"];
                 $_SESSION["user_type"] = $table_name == "consumers" ? "Consumer" : "Tiffin Center";
-                redirect("home");
+                if ($_SESSION["user_type"] == "Consumer")
+                    redirect("home");
+                else
+                    redirect("dashboard");
             }
             else
                 $error_msg = "Unknown Username or Password";

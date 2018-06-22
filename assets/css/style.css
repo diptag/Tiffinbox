@@ -1412,3 +1412,23 @@ mark, .mark {
 div.menu-row {
     margin-bottom: 50px;
 }
+
+.text-right {
+    text-align: right;
+}
+
+.weekly-summary {
+    margin-bottom: 30%;
+}
+
+.weekly-summary p {
+    font-size: 25px;
+}
+
+.weekly-summary .percentage {
+    font-size: 15px;
+}
+
+.weekly-summary .info-label {
+    font-size: 20px;
+}
