@@ -1432,3 +1432,8 @@ div.menu-row {
 .weekly-summary .info-label {
     font-size: 20px;
 }
+
+.heading-center {
+    display: flex;
+    justify-content: center;
+}

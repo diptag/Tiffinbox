@@ -6,10 +6,10 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <div id="headline-chart" class="ct-charts"></div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <div class="weekly-summary text-right">
                                         <span class="number"><?= $this_week["total_orders"] ?></span>
                                         <span class="percentage">

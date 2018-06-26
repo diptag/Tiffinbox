@@ -35,6 +35,7 @@
                                         columnDefs: [
                                             {orderable: false, targets: [3]}
                                         ],
+                                        order: [[7, "DESC"]],
                                     });
                                 });
                             </script>

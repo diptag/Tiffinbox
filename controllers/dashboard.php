@@ -1,7 +1,4 @@
 <?php
-    if ($_SESSION["user_type"] != "Tiffin Center")
-        redirect ("home");
-
     $dw = date("w", time());
     $dw = $dw == 0 ? 7 : $dw;
     $curDate = date("M d, Y", time());

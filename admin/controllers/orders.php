@@ -5,7 +5,7 @@
     {
         $sql = "SELECT orders.id AS 'orderId', consumers.name AS 'consumerName', tiffin_centers.name AS 'tiffinCenterName', menus.menu AS 'menu', payments.amount AS 'amount', orders.payment_id AS 'paymentId', tiffin_centers.city AS 'city', FROM_UNIXTIME(orders.date_time, '%d %b, %Y %H:%i:%s') AS 'datetime', orders.status AS 'status' FROM orders INNER JOIN tiffin_centers ON tiffin_centers.id = orders.tiffin_center_id INNER JOIN menus ON menus.id = orders.menu_id INNER JOIN payments ON payments.id = orders.payment_id INNER JOIN consumers ON consumers.id = orders.consumer_id";
 
-        $tableColumns = ["orders.id", "consumers.name", "tiffin_centers.name", "menus.menu", "payments.amount", "orders.payment_id", "tiffin_centers.city", "orders.date", "orders.time", "orders.status"];
+        $tableColumns = ["orders.id", "consumers.name", "tiffin_centers.name", "menus.menu", "payments.amount", "orders.payment_id", "tiffin_centers.city", "orders.date_time", "orders.status"];
 
         dataTablesAJAX ($dbh, $sql, "orders", $tableColumns, "id");
     }

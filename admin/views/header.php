@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
 	<link rel="stylesheet" href="assets/vendor/DataTables/datatables.min.css">
-	<link rel="stylesheet" href="assets/vendor/DataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/vendor/DataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
@@ -26,7 +26,7 @@
 	<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/assets/vendor/Highcharts/code/highcharts.js"></script>
-	<script src="assets/vendor/DataTables/datatables.min.js"></script>
+	<script src="/assets/vendor/DataTables/datatables.min.js"></script>
 	<script src="assets/vendor/dateFormat.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
 </head>

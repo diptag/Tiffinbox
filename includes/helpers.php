@@ -86,8 +86,10 @@
         render ("login-view", $dict);
     }
 
-    function dataTablesAJAX ($dbh, $sql, $tableName, $tableColumns, $pk)
+    function dataTablesAJAX ($sql, $tableName, $tableColumns)
     {
+        global $dbh;
+
         $draw = $_POST["draw"];
         $orderByColumnIndex = $_POST["order"][0]["column"];
         $orderBy = $_POST["columns"][$orderByColumnIndex]["data"];
@@ -95,14 +97,14 @@
         $start = $_POST["start"];
         $length = $_POST["length"];
 
-        $result = ($dbh->query("SELECT COUNT($pk) as totalRecords FROM ".$tableName)->fetch(PDO::FETCH_ASSOC));
+        $result = ($dbh->query("SELECT COUNT(id) as totalRecords FROM $tableName WHERE tiffin_center_id = ".intval($_SESSION["user_id"]))->fetch(PDO::FETCH_ASSOC));
         $recordsTotal = intval($result["totalRecords"]);
 
         if (!empty($_POST["search"]["value"]))
         {
             for ($i = 0; $i < count($tableColumns); $i++)
                 $where[] = $tableColumns[$i]." LIKE '%".$_POST["search"]["value"]."%'";
-            $whereSql = "Where ".implode(" OR ", $where);
+            $whereSql = "AND (".implode(" OR ", $where).")";
             $recordsFiltered = count(($dbh->query($sql." ".$whereSql))->fetchAll(PDO::FETCH_ASSOC));
 
             $data = ($dbh->query("$sql $whereSql ORDER BY $orderBy $orderType LIMIT $start, $length")->fetchAll(PDO::FETCH_ASSOC));

@@ -9,11 +9,13 @@
         <link href="assets/fonts/oswald/stylesheet.css" rel="stylesheet"/>
         <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="assets/vendor/DataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css">
         <!-- Custom styles for this template -->
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/responsive.css" rel="stylesheet">
         <script src="assets/vendor/jquery/jquery.min.js" type="text/javascript"></script>
         <script src="assets/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="assets/vendor/DataTables/datatables.min.js"></script>
         <script src="assets/js/counterup.min.js" type="text/javascript"></script>
         <script src="assets/js/waypoints.min.js" type="text/javascript"></script>
         <script src="assets/js/instafeed.min.js" type="text/javascript"></script>
@@ -65,10 +67,10 @@
                             </ul>
                             <?php elseif ($_SESSION["user_type"] == "Tiffin Center"): ?>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Dashboard</a></li>
-                                <li><a href="#">Orders</a></li>
-                                <li><a href="#">Menus</a></li>
-                                <li><a href="#">Overview</a></li>
+                                <li class="<?php if ($active_page == "dashboard") echo "active"; ?>"><a href="dashboard">Dashboard</a></li>
+                                <li class="<?php if ($active_page == "orders") echo "active"; ?>"><a href="orders">Orders</a></li>
+                                <li class="<?php if ($active_page == "menus") echo "active"; ?>"><a href="menus">Menus</a></li>
+                                <li class="<?php if ($active_page == "overview") echo "active"; ?>"><a href="#">Overview</a></li>
                                 <li><a href="logout">LogOut</a></li>
                             </ul>
                             <?php endif; ?>
