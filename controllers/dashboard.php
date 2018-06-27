@@ -1,4 +1,5 @@
 <?php
+    tiffinCenterCheck();
     $dw = date("w", time());
     $dw = $dw == 0 ? 7 : $dw;
     $curDate = date("M d, Y", time());

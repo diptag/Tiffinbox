@@ -1,4 +1,5 @@
 <?php
+    tiffinCenterCheck();
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         if (isset($_GET["completed"]))

@@ -62,7 +62,7 @@
             $query->execute();
             $user = $query->fetch(PDO::FETCH_ASSOC);
 
-            if (!isset($user["id"]))
+            if (!$user)
                 $error_msg = "Unknown Username or Password";
             else if (password_verify($_POST["pass"], $user["password_hash"]))
             {
@@ -126,5 +126,21 @@
 
         header ("Content-type: application/json");
         print (json_encode($response));
+    }
+
+    function tiffinCenterCheck()
+    {
+        if (!isset($_SESSION["user_type"]))
+            redirect ("tiffin-center-login");
+        else if ($_SESSION["user_type"] != "Tiffin Center")
+            redirect ("home");
+    }
+
+    function consumerCheck()
+    {
+        if (!isset($_SESSION["user_type"]))
+            redirect ("user-login");
+        else if ($_SESSION["user_type"] != "Consumer")
+            redirect ("dashboard");
     }
 ?>

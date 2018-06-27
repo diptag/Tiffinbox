@@ -1,4 +1,5 @@
 <?php
+    tiffinCenterCheck();
     if ($_SERVER["REQUEST_METHOD"] == "GET")
         render ("menu-form", ["title" => "Add New Menu", "active_page" => "menus"]);
     else if ($_SERVER["REQUEST_METHOD"] == "POST")

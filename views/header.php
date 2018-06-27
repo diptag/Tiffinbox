@@ -62,6 +62,7 @@
                                     </div>
                                 </li>
                                 <?php else: ?>
+                                <li><a href="cart"><i class="fa fa-cart-plus"></i> Cart</li>
                                 <li><a href="logout">LogOut</a></li>
                                 <?php endif; ?>
                             </ul>

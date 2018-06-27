@@ -1,4 +1,5 @@
 <?php
+    consumerCheck();
     if (!isset($_SESSION["user_id"]))
         redirect ("user-login");
     else if ($_SERVER["REQUEST_METHOD"] == "GET")
