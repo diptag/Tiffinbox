@@ -13,7 +13,7 @@
         $database["username"], $database["password"]);
         $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     }
-    catch( PDOException $e)
+    catch( PDOException $err)
     {
         //render("msg", ["title" => "Error", "msg" => "Error: Couldn't connect to the databse."]);
         die("Error! " . $err->getMessage());

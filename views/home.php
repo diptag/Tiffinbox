@@ -17,6 +17,11 @@
                 <div class="text-head add-top-space">
                     <h1>Today's Top Menus</h1>
                 </div>
+                <?php if (isset($error_msg)): ?>
+                <div class="alert alert-danger">
+                    <?= $error_msg ?>
+                </div>
+                <?php endif; ?>
                 <div class="height-135"></div>
                 <div id="top-menus">
                 </div>

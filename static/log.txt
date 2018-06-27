@@ -52,3 +52,4 @@ requiredDate Can
 shippedDate Can
 status Can
 comments Can
+4.24.2 0 3.83.8  3.44.7 4.5 4.7
