@@ -1,6 +1,8 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
+        $testimonials = ($dbh->query("SELECT testimonials.*, tiffin_centers.name AS tiffin_center_name, consumers.name AS consumer_name FROM testimonials INNER JOIN tiffin_centers ON tiffin_centers.id = testimonials.tiffin_center_id INNER JOIN consumers ON consumers.id = testimonials.consumer_id WHERE testimonials.rating >= 3.5 ORDER BY RAND() LIMIT 6"))->fetchAll(PDO::FETCH_ASSOC);
+
         if (isset($_GET["user_city"]))
             $_SESSION["user_city"] = htmlspecialchars($_GET["user_city"]);
 
@@ -13,11 +15,11 @@
             $result = (int)$total_query->fetch();
             $total_tiffin_centers = intval($result/PAGE_LIMIT) + 1;
 
-            render ("home", ["title" => "Home", "active_page" => "home", "total_tiffin_centers" => $total_tiffin_centers]);
+            render ("home", ["title" => "Home", "active_page" => "home", "total_tiffin_centers" => $total_tiffin_centers, "testimonials" => $testimonials]);
         }
         else
         {
-            render ("home", ["title" => "Home", "active_page" => "home"]);
+            render ("home", ["title" => "Home", "active_page" => "home", "testimonials" => $testimonials]);
         }
     }
 

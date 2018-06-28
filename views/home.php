@@ -51,23 +51,16 @@
                 <div class="set-border-left">
                     <div data-ride="carousel" class="carousel slide" id="myCarousel4">
                         <div class="carousel-inner">
-                            <div class="item active">
+                        <?php for ($i = 0; $i < 3; $i++): ?>
+                            <div class="item <?php if ($i == 0) echo "active" ?>">
                                 <div class="feedback-content">
                                     <div class="feedback-box">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa loremi psum dolor sitamet, consectetuer adipiscing elit aenean commodo ligula eget do an massa consectetuer adipiscing elit</p>
+                                        <p><?= $testimonials[$i]["testimonial"] ?></p>
                                     </div>
-                                    <div class="feedback-title"><a><i class="fa fa-user"></i></a><span>DAVID WARNER</span></div>
+                                    <div class="feedback-title"><a><i class="fa fa-user"></i></a><span><?= $testimonials[$i]["consumer_name"]." @ ".$testimonials[$i]["tiffin_center_name"] ?></span></div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="feedback-content">
-                                    <div class="feedback-box">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa loremi psum dolor sitamet, consectetuer adipiscing elit aenean commodo ligula eget do an massa consectetuer adipiscing elit</p>
-                                    </div>
-                                    <div class="feedback-title"><a><i class="fa fa-user"></i></a><span>DAVID WARNER</span></div>
-                                </div>
-                            </div>
-
+                        <?php endfor; ?>
                         </div>
                         <a data-slide="prev" href="#myCarousel4" class="left carousel-control"> <img alt="left" onmouseout="this.src = 'assets/images/icons/left.png'" onmouseover="this.src = 'assets/images/icons/left-hover.png'" src="assets/images/icons/left.png"></a>
                         <a data-slide="next" href="#myCarousel4" class="right carousel-control"><img alt="left" onmouseout="this.src = 'assets/images/icons/right.png'" onmouseover="this.src = 'assets/images/icons/right-hover.png'" src="assets/images/icons/right.png"></a>
@@ -75,25 +68,19 @@
                     <div class="black-line"><hr/></div>
                     <div data-ride="carousel" class="carousel slide" id="myCarousel5">
                         <div class="carousel-inner">
-                            <div class="item active">
+                        <?php for ($i = 3; $i < 6; $i++): ?>
+                            <div class="item <?php if ($i == 3) echo "active" ?>">
                                 <div class="feedback-content">
                                     <div class="feedback-box">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa loremi psum dolor sitamet, consectetuer adipiscing elit aenean commodo ligula eget do an massa consectetuer adipiscing elit</p>
+                                        <p><?= $testimonials[$i]["testimonial"] ?></p>
                                     </div>
-                                    <div class="feedback-title"><a><i class="fa fa-user"></i></a><span>DAVID WARNER</span></div>
+                                    <div class="feedback-title"><a><i class="fa fa-user"></i></a><span><?= $testimonials[$i]["consumer_name"]." @ ".$testimonials[$i]["tiffin_center_name"] ?></span></div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="feedback-content">
-                                    <div class="feedback-box">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa loremi psum dolor sitamet, consectetuer adipiscing elit aenean commodo ligula eget do an massa consectetuer adipiscing elit</p>
-                                    </div>
-                                    <div class="feedback-title"><a><i class="fa fa-user"></i></a><span>DAVID WARNER</span></div>
-                                </div>
-                            </div>
+                        <?php endfor; ?>
+                        </div>
                             <a data-slide="prev" href="#myCarousel5" class="left carousel-control"> <img alt="left" onmouseout="this.src = 'assets/images/icons/left.png'" onmouseover="this.src = 'assets/images/icons/left-hover.png'" src="assets/images/icons/left.png"></a>
                             <a data-slide="next" href="#myCarousel5" class="right carousel-control"><img alt="left" onmouseout="this.src = 'assets/images/icons/right.png'" onmouseover="this.src = 'assets/images/icons/right-hover.png'" src="assets/images/icons/right.png"></a>
-                        </div>
                     </div>
                 </div>
         </section>
