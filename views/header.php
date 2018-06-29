@@ -71,7 +71,7 @@
                                 <li class="<?php if ($active_page == "dashboard") echo "active"; ?>"><a href="dashboard">Dashboard</a></li>
                                 <li class="<?php if ($active_page == "orders") echo "active"; ?>"><a href="orders">Orders</a></li>
                                 <li class="<?php if ($active_page == "menus") echo "active"; ?>"><a href="menus">Menus</a></li>
-                                <li class="<?php if ($active_page == "overview") echo "active"; ?>"><a href="#">Overview</a></li>
+                                <li class="<?php if ($active_page == "overview") echo "active"; ?>"><a href="overview">Overview</a></li>
                                 <li><a href="logout">LogOut</a></li>
                             </ul>
                             <?php endif; ?>

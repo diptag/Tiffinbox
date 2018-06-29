@@ -28,23 +28,6 @@
         <a id="back-to-top" class="scrollTop back-to-top" href="javascript:void(0);" style="display: none;">
             <img src="assets/images/top-arrow.png" onmouseover="this.src = 'assets/images/top-arrow2.png'" onmouseout="this.src = 'assets/images/top-arrow.png'" alt="left">
         </a>
-        <!--end--->
-
-        <script>
-            jQuery(document).ready(function ($) {
-                $('.counter').counterUp({
-                    delay: 10,
-                    time: 1000
-                });
-            });
-        </script>
-        <script>
-            $(function () {
-                $('.pop').on('click', function () {
-                    $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-                    $('#imagemodal').modal('show');
-                });
-            });
-        </script>
+        <!--end-->
     </body>
 </html>

@@ -38,9 +38,33 @@
     elseif ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         require (__DIR__."/tiffin-center-validate.php");
+        if (!isset($_FILES['image_upload']) || $_FILES['image_upload']['error'] == UPLOAD_ERR_NO_FILE)
+            $stmt = $dbh->prepare("UPDATE tiffin_centers SET name = :name, address = :address, email = :email,  contact_no = :contact_no, city = :city, state = :state, plan_id = :plan, overview = :overview WHERE id = :id");
+        else if (isset($_FILES['image_upload']) && $_FILES['image_upload']['error'] == UPLOAD_ERR_OK)
+        {
+            $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
+            $detectedType = exif_imagetype($_FILES["image_upload"]["tmp_name"]);
+            if (!in_array($detectedType, $allowedTypes))
+                $error_msg = "Unsupported Image Type!";
+            else if ($_FILES["image_upload"]["size"] > 1024000)
+                $error_msg = "Image size should be less than 512 kb.";
 
+            $img_dir = __DIR__."/../../static/img/tiffin_centers/";
+            $img_pathinfo = pathinfo ($_FILES["image_upload"]["name"]);
+            $timestamp = time();
+            $img_name = $img_pathinfo["filename"].'-'.$timestamp.'.'.$img_pathinfo["extension"];
 
-        $stmt = $dbh->prepare("UPDATE tiffin_centers SET name = :name, address = :address, email = :email,  contact_no = :contact_no, city = :city, state = :state, plan_id = :plan, overview = :overview WHERE id = :id");
+            if (isset($error_msg))
+                render ("tiffin-center-form", ["title" => "Edit Tiffin Center", "active_page" => "tiffincenters", "form_action" => "add-tiffin-center", "plans" => $plans, "error_msg" => $error_msg]);
+
+            if (move_uploaded_file($_FILES["image_upload"]["tmp_name"], $img_dir.$img_name))
+            {
+                $stmt = $dbh->prepare("UPDATE tiffin_centers SET name = :name, address = :address, email = :email,  contact_no = :contact_no, city = :city, state = :state, plan_id = :plan, overview = :overview, image = :image WHERE id = :id");
+                $isImage = true;
+            }
+            else
+                render ("tiffin-center-form", ["title" => "Edit Tiffin Center", "active_page" => "tiffincenters", "form_action" => "add-tiffin-center", "plans" => $plans, "error_msg" => "Couldn't Upload Image!"]);
+        }
         $stmt->bindParam(":name", $_POST["tc_name"]);
         $stmt->bindParam(":address", $_POST["tc_address"]);
         $stmt->bindParam(":email", $_POST["tc_email"]);
@@ -49,11 +73,13 @@
         $stmt->bindParam(":state", $_POST["tc_state"]);
         $stmt->bindParam(":plan", $_POST["tc_plan"], PDO::PARAM_INT);
         $stmt->bindParam(":overview", $_POST["tc_overview"]);
+        if ($isImage)
+            $stmt->bindParam(":image", $img_name);
         $stmt->bindParam(":id", $_POST["tc_id"]);
 
         if ($stmt->execute())
             redirect ("tiffincenters");
         else
-                render ("tiffin-center-form", ["title" => "Edit Tiffin Center", "active_page" => "tiffincenters", "form_action" => "add-tiffin-center", "plans" => $plans, "error_msg" => "Couldn't update Tiffin Center!"]);
+            render ("tiffin-center-form", ["title" => "Edit Tiffin Center", "active_page" => "tiffincenters", "form_action" => "add-tiffin-center", "plans" => $plans, "error_msg" => "Couldn't update Tiffin Center!"]);
     }
 ?>

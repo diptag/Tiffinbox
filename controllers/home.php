@@ -30,7 +30,7 @@
         if (empty($_POST["page"]) || $_POST["page"] < 1)
             $_POST["page"] = 1;
         $start = PAGE_LIMIT * (intval($_POST["page"]) - 1);
-        $query = $dbh->prepare("SELECT tiffin_centers.id, tiffin_centers.name, tiffin_centers.city, tiffin_centers.state, menus.menu, menus.price FROM tiffin_centers INNER JOIN menus ON menus.tiffin_center_id = tiffin_centers.id INNER JOIN plans ON plans.id = tiffin_centers.plan_id WHERE (tiffin_centers.added_date + plans.validity * 24 * 60 * 60 > UNIX_TIMESTAMP()) AND tiffin_centers.city = :city AND menus.status = 'Active' ORDER BY tiffin_centers.rating LIMIT :start, ".PAGE_LIMIT);
+        $query = $dbh->prepare("SELECT tiffin_centers.id, tiffin_centers.name, tiffin_centers.city, tiffin_centers.state, tiffin_centers.image, menus.menu, menus.price FROM tiffin_centers INNER JOIN menus ON menus.tiffin_center_id = tiffin_centers.id INNER JOIN plans ON plans.id = tiffin_centers.plan_id WHERE (tiffin_centers.added_date + plans.validity * 24 * 60 * 60 > UNIX_TIMESTAMP()) AND tiffin_centers.city = :city AND menus.status = 'Active' ORDER BY tiffin_centers.rating LIMIT :start, ".PAGE_LIMIT);
         $query->bindParam(":city", $_SESSION["user_city"]);
         $query->bindParam(":start", $start, PDO::PARAM_INT);
         $query->execute();

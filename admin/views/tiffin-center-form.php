@@ -1,5 +1,5 @@
                 <div class="row justify-content-center">
-                    <form action="<?= $form_action ?>" id="tiffin-center-form" method="POST" class="form-center panel" accept-charset="utf-8" autocomplete="on">
+                    <form action="<?= $form_action ?>" id="tiffin-center-form" method="POST" class="form-center panel" accept-charset="utf-8" autocomplete="on" enctype="multipart/form-data">
                         <div class="panel-heading">
                             <h3>Add New Tiffin Center</h3>
                         </div>
@@ -83,6 +83,20 @@
                                 </div>
                             </div>
                             <?php endif; ?>
+
+                            <div class="form-group row">
+                                <div class="col-md-2">
+                                    <label for="image_upload">Upload Image: </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="file" name="image_upload" class="form-control" style="display: inline-block;" onchange="document.getElementById('preview-image').src = window.URL.createObjectURL(this.files[0])" <?php if (!isset($tiffin_center)) echo "required" ?>/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img id="preview-image" style="max-height: 100%; max-width: 100%; object-fit: contain;"/>
+                                </div>
+                            </div>
                         </div>
 
                         <button class="btn btn-success center-submit" type="submit" <?php if (isset($tiffin_center["id"])) echo "name=\"tc_id\" value=".$tiffin_center["id"]; ?>><?php if (isset($tiffin_center["id"])) echo "Edit Tiffin Center"; else echo "Add New Tiffin Center"; ?></button>

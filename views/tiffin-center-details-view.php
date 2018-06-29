@@ -12,7 +12,7 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="assets/images/Home/Image11.png">
+                                            <img src="slir/h230-w230-c1x1<?= STATIC_IMG_DIR."tiffin_centers/".$tiffin_center["image"] ?>">
                                         </div>
                                         <div class="col-md-6">
                                             <h3 style="margin-bottom: 15px;"><?= $tiffin_center["name"] ?></h3>
